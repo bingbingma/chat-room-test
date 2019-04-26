@@ -13,20 +13,16 @@ app.get("/", function(req, res) {
 
 io.on("connection", function(socket) {
   console.log("an user connected");
-});
-
-io.on("connection", function(socket) {
-  console.log("an user connected");
   socket.on("disconnect", function() {
     console.log("user disconnected");
   });
 });
 
-io.on("connection", function(socket) {
-  socket.on("chat message", function(msg) {
-    console.log("message: " + msg);
-  });
-});
+// io.on("connection", function(socket) {
+//   socket.on("chat message", function(msg) {
+//     console.log("message: " + msg);
+//   });
+// });
 
 io.on("connection", function(socket) {
   socket.on("chat message", function(msg) {
@@ -34,7 +30,7 @@ io.on("connection", function(socket) {
   });
 });
 
-io.emit("some event", { for: "everyone" });
+// io.emit("some event", { for: "everyone" });
 
 http.listen(3000, function() {
   console.log(`listening on http://localhost:${port}`);
